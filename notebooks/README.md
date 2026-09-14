@@ -1,4 +1,4 @@
-# Python supplements for Labs 1–8
+# Python supplements for Labs 1–9
 
 Each student notebook contains **two programming exercises in English**, with
 mathematical statements, explicit code tasks, starter functions, plotting cells,
@@ -16,6 +16,7 @@ homework; the original 90-minute mathematical labs remain the core schedule.
 | 6 | Hinge angle and area gain | Fixed-side quadrilaterals and cyclic optimality | [Lab 6](lab-06-hinges-and-quadrilaterals.ipynb) | [Solutions](solutions/lab-06-hinges-and-quadrilaterals.ipynb) |
 | 7 | Raster symmetric difference and missed thin features | Hausdorff distance and distance functions | [Lab 7](lab-07-shape-distances.ipynb) | [Solutions](solutions/lab-07-shape-distances.ipynb) |
 | 8 | Support functions and directional widths | Random convex polygons at minimum width one | [Lab 8](lab-08-support-and-width.ipynb) | [Solutions](solutions/lab-08-support-and-width.ipynb) |
+| 9 | Polygonal Minkowski sums and mixed-area coefficients | The matching cut and rectangle-union areas | [Lab 9](lab-09-mixed-areas-and-box-cuts.ipynb) | [Solutions](solutions/lab-09-mixed-areas-and-box-cuts.ipynb) |
 
 ## Start Jupyter
 
@@ -71,7 +72,7 @@ python scripts/validate_notebooks.py --execute --kind solutions --write-solution
 ```
 
 The first command validates notebook structure and the two-exercise pairing.
-The second executes all 16 notebooks, each in a fresh kernel, and saves copies
+The second executes all 18 notebooks, each in a fresh kernel, and saves copies
 under ignored `build/notebooks/`. The third refreshes the saved solution outputs.
 Execution checks include analytic optima, area/perimeter constraints, gradient
 finite differences, descent/ascent, approximation errors, metric identities and
@@ -82,6 +83,8 @@ The default validation kernel is `python3`. If you followed the named-kernel
 setup above, append `--kernel shape-optimization` to the execution commands.
 The chosen kernel must have the requirements installed. No package installation
 is performed by a notebook or by the validator.
+Use `--lab 9` (or several lab numbers) to validate and execute only selected
+labs; pairing and consecutive numbering are still checked for the collection.
 
 ## API references
 

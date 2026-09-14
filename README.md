@@ -5,7 +5,7 @@ Testing
 
 Course 1.
 
-## First eight sessions — English
+## First nine sessions — English
 
 Each session consists of a 90-minute course and a 90-minute lab.
 See the [session plan and source map](SESSION_PLAN.md) for the timetable,
@@ -21,6 +21,7 @@ learning outcomes, teaching suggestions and links to last year's material.
 | 6 | Steiner's hinge arguments, cyclic quadrilaterals and the existence gap | Bisectors, two- and four-cap constructions, proof logic |
 | 7 | L¹ and Hausdorff distances; Blaschke selection via Arzelà–Ascoli | Counterexamples, distance functions and compactness |
 | 8 | Existence, support functions, convex continuity, constant and minimum width | Confinement, admissible limits and Pál's triangle inequality |
+| 9 | Mixed areas and volumes; Brunn–Minkowski by box induction; isoperimetry | Parallel bodies, matching cuts, mixed coefficients and geometric inequalities |
 
 - [Course notes — PDF](pdf/course-notes.pdf)
 - [Student lab sheets — PDF](pdf/lab-sheets.pdf)
@@ -41,14 +42,21 @@ shapes and prove that an equilateral triangle minimizes area at prescribed
 minimum width. Each lecture and lab remains 90 minutes; longer geometric
 proofs are collected in the instructor notes.
 
+Session 9 follows Schneider and Treibergs. The elementary induction on unions
+of rectangular boxes is proved in any dimension; mixed areas and the planar
+Steiner formula lead to isoperimetry. General mixed volumes are introduced
+through their polynomial coefficients and first variation, with advanced
+theory left outside the core.
+
 ## Supplementary Python exercises
 
-Each of the eight labs has a Jupyter notebook with **two additional programming
+Each of the nine labs has a Jupyter notebook with **two additional programming
 exercises**: English statements, starter code, plotting tasks, checks and
 discussion prompts. Separate worked solution notebooks include executed figures.
 
 See the [notebook index and setup instructions](notebooks/README.md) for all
-eight pairs. Topics include geometric searches, gradient descent, constrained
-polygon improvement, Dido, hinge motions, shape distances and minimum width.
+nine pairs. Topics include geometric searches, gradient descent, constrained
+polygon improvement, Dido, hinge motions, shape distances, minimum width,
+mixed areas and the box-cut construction.
 These supplements can be assigned as homework or additional computer sessions;
 the original mathematical lab schedule remains 90 minutes.

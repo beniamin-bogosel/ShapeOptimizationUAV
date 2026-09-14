@@ -1,7 +1,7 @@
-# Shape Optimization — first eight sessions
+# Shape Optimization — first nine sessions
 
 English course materials for Aurel Vlaicu University of Arad. Each session
-consists of **90 minutes of course + 90 minutes of lab**: 24 contact hours in
+consists of **90 minutes of course + 90 minutes of lab**: 27 contact hours in
 total. The core labs are mathematical seminars; no programming environment is
 required for them. Each lab also has two optional Python exercises in a
 supplementary Jupyter notebook; see the section below. Students need elementary Euclidean geometry, single-variable
@@ -21,6 +21,8 @@ scaling lead to a proof by polygonal approximation, then geometric improvement
 arguments determine the equality case and expose the classical existence gap.
 Sessions 7–8 supply a general compactness and existence framework, establish
 continuity for convex shapes, and study area optimization with width constraints.
+Session 9 adds mixed areas and volumes, an elementary box-induction proof of
+Brunn–Minkowski, and its isoperimetric applications.
 
 | Session | Course, 90 minutes | Lab, 90 minutes |
 | --- | --- | --- |
@@ -32,12 +34,13 @@ continuity for convex shapes, and study area optimization with width constraints
 | 6 | Area/perimeter bisectors; Steiner hinge; cyclic quadrilaterals; existence and equality | Reflection, area variations, quadrilateral formulas and logical gaps |
 | 7 | L¹ and Hausdorff distances; properties; distance functions; Blaschke via Arzelà–Ascoli | Metrics, counterexamples, diameter, convexity and the selection proof |
 | 8 | Direct method; support functions; convex continuity; constant and minimum width; Pál's inequality | Support examples, confinement, continuity and the incircle area calculation |
+| 9 | Minkowski sums; mixed area; Steiner; box induction for Brunn–Minkowski; mixed volumes and isoperimetry | Explicit sums, parallel boundaries, matching cuts, limits and coefficients |
 
 ## Materials and build
 
 - [Course notes](pdf/course-notes.pdf), editable master [course-notes.tex](course-notes.tex), with one source per session in `sessions/`.
 - [Student lab sheets](pdf/lab-sheets.pdf), editable master [lab-sheets.tex](lab-sheets.tex), with one source per lab in `labs/`.
-- [Instructor notes and solutions](pdf/instructor-notes.pdf), editable master [instructor-notes.tex](instructor-notes.tex), solutions in `instructor/solutions.tex`, `instructor/solutions-05-06.tex` and `instructor/solutions-07-08.tex`.
+- [Instructor notes and solutions](pdf/instructor-notes.pdf), editable master [instructor-notes.tex](instructor-notes.tex), solutions in `instructor/solutions.tex`, `instructor/solutions-05-06.tex`, `instructor/solutions-07-08.tex` and `instructor/solutions-09.tex`.
 
 Run `make` from this folder to regenerate all three PDFs. It requires GNU Make
 and a TeX installation with pdfLaTeX, AMS packages, Latin Modern, microtype,
@@ -54,7 +57,7 @@ no separate break has been deducted.
 
 ## Supplementary Python notebooks
 
-All eight labs have **two additional programming exercises** in English.
+All nine labs have **two additional programming exercises** in English.
 The [notebook index](notebooks/README.md) links the student notebooks, separate
 worked solutions, dependency list and instructions for running Jupyter.
 The `.ipynb` files are self-contained and remain editable independently of
@@ -71,9 +74,10 @@ guidance; student versions provide starter functions and checks.
 | 6 | Fixed-bar hinge motion and reflected area | Fixed-side quadrilaterals and cyclic optimality |
 | 7 | Raster symmetric difference and vanishing thin features | Hausdorff distance through nearest neighbors |
 | 8 | Support functions and constant/minimum width | Normalize random convex polygons to minimum width one |
+| 9 | Compute Minkowski sums of polygons and mixed areas | Match a box cut by volume and measure the resulting unions |
 
 Allow roughly 60–90 minutes per pair, or assign the exercises separately as
-homework. These times are additional to the 24-hour core programme. Students
+homework. These times are additional to the 27-hour core programme. Students
 need basic Python functions, loops and arrays; geometry and plotting helpers
 are supplied. Derivative-based algorithms start in Lab 3. The polygon ascent
 exercise in Lab 4 is the most demanding and includes the gradients and a
@@ -371,6 +375,60 @@ nonconvex set. The equilateral triangle has the required minimum width but
 does not have constant width. Existence of area extrema among constant-width
 bodies is proved here; identifying their area minimizer is outside this session.
 
+## Session 9 — mixed areas, mixed volumes and Brunn–Minkowski
+
+**Outcome:** students can compute Minkowski sums and mixed-area coefficients,
+interpret perimeter as an area derivative, explain the induction on unions of
+boxes, and derive the planar isoperimetric inequality. They recognize the
+higher-dimensional polynomial and its first mixed-volume coefficient.
+
+| Course time | Activity |
+| --- | --- |
+| 0–10 | Minkowski addition, support functions, parallel margins, robot positions and the constant-width difference body. |
+| 10–25 | Rectangle example; mixed-area polynomial; edge-direction explanation, first variation and basic properties. |
+| 25–35 | Convex Steiner formula by strips and sectors; identify twice the disk mixed area with perimeter. |
+| 35–60 | Brunn–Minkowski: box base case, matching-proportion cuts, decreasing counts, and outer approximation. |
+| 60–72 | Compare area polynomials to obtain Minkowski's inequality; deduce isoperimetry and introduce a directional boundary cost. |
+| 72–85 | State the mixed-volume polynomial; work a 3D box example; differentiate to obtain the higher-dimensional isoperimetric bound. |
+| 85–90 | Exit task: why the same volume fractions, and why the derivative coefficient includes the dimension. |
+
+| Lab time | Activity |
+| --- | --- |
+| 0–15 | Exercise 9.1: rectangle sums, support addition, cross term and the difference body. |
+| 15–30 | Exercise 9.2: parallel strips/sectors and the disconnected-disks counterexample. |
+| 30–50 | Exercise 9.3: explicit matching cut, omitted cross sums and the correct induction count. |
+| 50–70 | Exercise 9.4: outer approximation, mixed-area inequality and isotropic/directional perimeter problems. |
+| 70–80 | Exercise 9.5: 3D box coefficients, binomial factors and the isoperimetric constant. |
+| 80–90 | Synthesis: definitions, proved inequalities, approximation and supplied equality rigidity. |
+
+**Pacing and prerequisites:** support functions and convex Hausdorff continuity
+come from Session 8. The main proof is induction on the **number of boxes**,
+not on dimension. Present its planar drawing and retain the dimension in the
+algebra. The polygon edge-list argument motivates the quadratic identity;
+full coefficient/additivity and first-variation details are instructor reading.
+The general volume-polynomial theorem and surface-area derivative are stated
+in higher dimension, with explicit boxes illustrating the coefficients.
+Mixed area measures, curvature measures and Alexandrov–Fenchel are outside
+this introductory unit.
+
+**Proof qualifications:** Brunn–Minkowski is proved for nonempty compact sets,
+using outer box approximations and continuity of measure from above. General
+Hausdorff continuity of volume is not invoked. Each side of the cut uses fewer
+boxes in the recursive pair; the total across both sides need not decrease.
+Equality rigidity is stated separately for positive-volume convex bodies and
+is not inferred merely from strict finite-box inequalities. The higher-dimensional
+equality argument also uses concavity to pass from derivative equality to full
+Brunn–Minkowski equality. The exact planar Steiner formula is used for convex
+bodies; two separated disks show why its single quadratic coefficient cannot
+be transferred to arbitrary disconnected sets.
+
+**Applications and extensions:** directional perimeter selects a scaled copy
+of the body defining its cost. The optional isodiametric argument uses
+`K + (-K)` and identifies the disk as the area maximum at constant width,
+connecting to Session 8. The Python supplement computes convex polygon sums
+and mixed-area coefficients, then uses bisection to match a cut and a sweep
+algorithm to measure rectangle unions without double-counting overlaps.
+
 ## Source map and editorial choices
 
 These are local source references in the parent course-content folder. The
@@ -394,6 +452,10 @@ Manuscript page numbers refer to PDF pages, not handwritten numbering.
 | Session 8 direct method and convex continuity | Curs7, pp. 12–14; `../Notes/SHO_2025_Curs8.pdf`, pp. 3–6; Henrot–Pierre, Chapter 2 |
 | Session 8 support functions and width | Curs8, pp. 7–11 |
 | Session 8 minimum-width inequality | Curs8, pp. 12–16; Yaglom–Boltyanskii, Chapter 6, Exercises 6-2 and 6-4 (printed pp. 59–60), solutions pp. 215–217 and 221–222 |
+| Session 9 sums, mixed areas and difference bodies | `../Notes/SHO_2025_Curs9.pdf`, pp. 8–10; Schneider, Sections 1.7 and 5.1 |
+| Session 9 parallel bodies | Treibergs, Section 7, pp. 14–15; Schneider, Section 4.2, especially printed p. 213 (PDF p. 237) |
+| Session 9 induction on box unions | Treibergs, Section 8, pp. 16–18; Schneider, notes to Section 7.1, item 10, printed p. 379 (PDF p. 403) |
+| Session 9 volume polynomial and inequalities | Schneider, Theorem 5.1.7, printed p. 280 (PDF p. 304); Theorem 7.1.1, printed p. 369 (PDF p. 393); Theorem 7.2.1 and isoperimetry, printed pp. 381–382 (PDF pp. 405–406) |
 
 The isoperimetric references consulted for Sessions 5–6 are:
 
@@ -444,6 +506,20 @@ an area-sublevel diameter bound before applying Blaschke. The proof does not
 assume that the three contact directions are equally spaced. Pál's equality
 case follows from the equality case of the incircle radius bound. These
 details make the existence and identification arguments independently usable.
+
+For Session 9, the local Schneider reference is
+`../(Encyclopedia of Mathematics and its Applications) Schneider R.-Convex Bodies_ The Brunn-Minkowski Theory-Cambridge University Press (2013).pdf`.
+Its title/copyright pages identify it as the **Second Expanded Edition, 2014**,
+despite the year in the filename. We use its theorem statements and elementary
+applications, not its full mixed-area-measure machinery. Schneider points to
+the Hadwiger–Ohmann cut in the notes to Section 7.1; it is also reproduced in
+[Gardner's survey, author manuscript, pp. 11–12](https://faculty.gardner.wwu.edu/gorizia12.pdf).
+Treibergs supplies the main planar model for the proof. The new presentation
+uses closed outer box covers to make the limiting argument explicit and keeps
+convex equality conditions separate from the general compact-set inequality.
+The manuscript's further constant-width minimum argument (Curs9, pp. 10–13)
+is not part of this session's core; the requested focus is mixed quantities,
+Brunn–Minkowski and isoperimetry.
 
 The written chapters are English Beamer sources; the relevant handwritten
 notes are Romanian and were inspected visually. They were used to check the

@@ -15,6 +15,7 @@ def main():
     parser.add_argument('--execute', action='store_true')
     parser.add_argument('--kind', choices=['all', 'student', 'solutions'], default='all')
     parser.add_argument('--kernel', default='python3', help='Installed Jupyter kernel name.')
+    parser.add_argument('--lab', type=int, nargs='+', help='Restrict checks to selected lab numbers.')
     parser.add_argument('--write-solutions', action='store_true',
                         help='Save successful executed solution outputs in their source notebooks.')
     args = parser.parse_args()
@@ -24,10 +25,16 @@ def main():
     directory = root / 'notebooks'
     students = sorted(directory.glob('lab-*.ipynb'))
     solutions = sorted((directory / 'solutions').glob('lab-*.ipynb'))
-    if len(students) != 8 or {p.name for p in students} != {p.name for p in solutions}:
-        raise ValueError('Expected eight student notebooks with eight matching solutions.')
+    numbers = [int(re.match(r'lab-(\d+)-', p.name).group(1)) for p in students]
+    if (not students or numbers != list(range(1, len(students)+1))
+            or {p.name for p in students} != {p.name for p in solutions}):
+        raise ValueError('Expected consecutively numbered student notebooks with matching solutions.')
     paths = students + solutions if args.kind == 'all' else (
         students if args.kind == 'student' else solutions)
+    if args.lab:
+        if not set(args.lab).issubset(numbers):
+            parser.error('Requested lab number is not present in the notebook collection.')
+        paths = [p for p in paths if int(re.match(r'lab-(\d+)-', p.name).group(1)) in args.lab]
     cache = root / 'build' / 'notebooks'
     if args.execute:
         cache.mkdir(parents=True, exist_ok=True)
