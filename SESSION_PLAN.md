@@ -2,8 +2,9 @@
 
 English course materials for Aurel Vlaicu University of Arad. Each session
 consists of **90 minutes of course + 90 minutes of lab**: 24 contact hours in
-total. The labs are mathematical seminars; no programming environment is
-required. Students need elementary Euclidean geometry, single-variable
+total. The core labs are mathematical seminars; no programming environment is
+required for them. Each lab also has two optional Python exercises in a
+supplementary Jupyter notebook; see the section below. Students need elementary Euclidean geometry, single-variable
 calculus, vectors and basic linear algebra. Partial derivatives and gradients
 are introduced in Session 3.
 Sessions 7–8 use basic compactness, uniform convergence and integration;
@@ -50,6 +51,44 @@ when distributing exercises. Optional material does not add to the 90-minute
 core. Lecture notes are a reference for board work, not a script that must be
 read in full during class. Timings below include interaction and feedback;
 no separate break has been deducted.
+
+## Supplementary Python notebooks
+
+All eight labs have **two additional programming exercises** in English.
+The [notebook index](notebooks/README.md) links the student notebooks, separate
+worked solutions, dependency list and instructions for running Jupyter.
+The `.ipynb` files are self-contained and remain editable independently of
+the LaTeX material. The solution versions contain saved plots and discussion
+guidance; student versions provide starter functions and checks.
+
+| Lab | Supplementary exercise 1 | Supplementary exercise 2 |
+| --- | --- | --- |
+| 1 | Plot and compare equal-perimeter shapes | Heron's reflection versus a sampled search |
+| 2 | Fermat point on a triangular grid | The 120-degree transition on an angle bisector |
+| 3 | Backtracking descent for a fixed-area rectangle | Gradient fields and step-size stability |
+| 4 | Project a gradient onto an ellipse tangent | Improve a convex polygon at fixed perimeter |
+| 5 | Both regular-polygon normalizations and convergence rates | Dido with discretized free arc length |
+| 6 | Fixed-bar hinge motion and reflected area | Fixed-side quadrilaterals and cyclic optimality |
+| 7 | Raster symmetric difference and vanishing thin features | Hausdorff distance through nearest neighbors |
+| 8 | Support functions and constant/minimum width | Normalize random convex polygons to minimum width one |
+
+Allow roughly 60–90 minutes per pair, or assign the exercises separately as
+homework. These times are additional to the 24-hour core programme. Students
+need basic Python functions, loops and arrays; geometry and plotting helpers
+are supplied. Derivative-based algorithms start in Lab 3. The polygon ascent
+exercise in Lab 4 is the most demanding and includes the gradients and a
+convexity test so students can focus on constraint handling.
+
+Assessment can use four items: correct implementation, constraint/error
+checks, legible plots, and an explanation of the numerical limitations.
+The notebooks emphasize the difference between sampled comparisons and
+global mathematical conclusions. Numerical existence evidence is never used
+in place of the compactness arguments in Sessions 7–8.
+
+`python scripts/validate_notebooks.py --execute` runs each student and solution
+notebook in a fresh kernel. Incomplete student tasks report what to finish;
+all mathematical assertions run in the completed solution versions. The
+validator also checks that each notebook contains exactly two exercises.
 
 ## Session 1 — generalities and examples
 

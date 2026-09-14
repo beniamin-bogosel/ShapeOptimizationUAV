@@ -1,3 +1,6 @@
 build/
 *.synctex.gz
 *.tex
+.venv/
+.ipynb_checkpoints/
+__pycache__/

@@ -40,3 +40,15 @@ and Yaglom–Boltyanskii's Chapter 6. They develop the direct method for convex
 shapes and prove that an equilateral triangle minimizes area at prescribed
 minimum width. Each lecture and lab remains 90 minutes; longer geometric
 proofs are collected in the instructor notes.
+
+## Supplementary Python exercises
+
+Each of the eight labs has a Jupyter notebook with **two additional programming
+exercises**: English statements, starter code, plotting tasks, checks and
+discussion prompts. Separate worked solution notebooks include executed figures.
+
+See the [notebook index and setup instructions](notebooks/README.md) for all
+eight pairs. Topics include geometric searches, gradient descent, constrained
+polygon improvement, Dido, hinge motions, shape distances and minimum width.
+These supplements can be assigned as homework or additional computer sessions;
+the original mathematical lab schedule remains 90 minutes.
