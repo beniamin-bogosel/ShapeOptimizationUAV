@@ -2,3 +2,41 @@
 Materials for shape optimization course at Aurel Vlaicu University of Arad Romania
 
 Testing
+
+Course 1.
+
+## First eight sessions — English
+
+Each session consists of a 90-minute course and a 90-minute lab.
+See the [session plan and source map](SESSION_PLAN.md) for the timetable,
+learning outcomes, teaching suggestions and links to last year's material.
+
+| Session | Course | Lab |
+| --- | --- | --- |
+| 1 | Introduction and shape optimization examples | Models, projections and Heron's problem |
+| 2 | Isoperimetric heuristics, catenary, existence questions | Torricelli/Fermat point in a triangle |
+| 3 | Existence, convexity, uniqueness, first-order conditions | Fixed-area rectangle and distance problems |
+| 4 | Gradients, Taylor formula and equality constraints | Polygonal isoperimetric inequality |
+| 5 | Regular polygons, equivalent formulations, polygonal approximation, Dido | Scaling, monotonicity, limit argument and shoreline problem |
+| 6 | Steiner's hinge arguments, cyclic quadrilaterals and the existence gap | Bisectors, two- and four-cap constructions, proof logic |
+| 7 | L¹ and Hausdorff distances; Blaschke selection via Arzelà–Ascoli | Counterexamples, distance functions and compactness |
+| 8 | Existence, support functions, convex continuity, constant and minimum width | Confinement, admissible limits and Pál's triangle inequality |
+
+- [Course notes — PDF](pdf/course-notes.pdf)
+- [Student lab sheets — PDF](pdf/lab-sheets.pdf)
+- [Instructor notes and solutions — PDF](pdf/instructor-notes.pdf)
+
+Editable LaTeX sources are in `sessions/`, `labs/` and `instructor/`.
+Run `make` in this directory to rebuild the PDFs; see
+[build requirements](SESSION_PLAN.md#materials-and-build).
+
+Sessions 5–6 draw on the local Treibergs and Blåsjö references. The polygonal
+approximation argument establishes the inequality and disk attainment;
+Steiner's arguments characterize the equality case. Detailed source locations
+and the correction to Treibergs' shoreline area formula are in the session plan.
+
+Sessions 7–8 use the corresponding manuscripts, Henrot–Pierre's Chapter 2
+and Yaglom–Boltyanskii's Chapter 6. They develop the direct method for convex
+shapes and prove that an equilateral triangle minimizes area at prescribed
+minimum width. Each lecture and lab remains 90 minutes; longer geometric
+proofs are collected in the instructor notes.
