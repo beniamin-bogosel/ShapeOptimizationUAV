@@ -1,7 +1,7 @@
-# Shape Optimization — first nine sessions
+# Shape Optimization — first eleven sessions
 
 English course materials for Aurel Vlaicu University of Arad. Each session
-consists of **90 minutes of course + 90 minutes of lab**: 27 contact hours in
+consists of **90 minutes of course + 90 minutes of lab**: 33 contact hours in
 total. The core labs are mathematical seminars; no programming environment is
 required for them. Each lab also has two optional Python exercises in a
 supplementary Jupyter notebook; see the section below. Students need elementary Euclidean geometry, single-variable
@@ -23,6 +23,8 @@ Sessions 7–8 supply a general compactness and existence framework, establish
 continuity for convex shapes, and study area optimization with width constraints.
 Session 9 adds mixed areas and volumes, an elementary box-induction proof of
 Brunn–Minkowski, and its isoperimetric applications.
+Sessions 10–11 study constant width and prove Blaschke–Lebesgue through
+mixed areas, tangent polygons and finite-dimensional variations.
 
 | Session | Course, 90 minutes | Lab, 90 minutes |
 | --- | --- | --- |
@@ -35,12 +37,14 @@ Brunn–Minkowski, and its isoperimetric applications.
 | 7 | L¹ and Hausdorff distances; properties; distance functions; Blaschke via Arzelà–Ascoli | Metrics, counterexamples, diameter, convexity and the selection proof |
 | 8 | Direct method; support functions; convex continuity; constant and minimum width; Pál's inequality | Support examples, confinement, continuity and the incircle area calculation |
 | 9 | Minkowski sums; mixed area; Steiner; box induction for Brunn–Minkowski; mixed volumes and isoperimetry | Explicit sums, parallel boundaries, matching cuts, limits and coefficients |
+| 10 | Constant width; support functions; existence; covering hexagon; Chakerian | Support families, compactness and mixed-area plateaus |
+| 11 | Tangent polygons and equality; Reuleaux approximation; geometric and variational proofs | Paired cuts, strict gaps, regular examples and admissible gradients |
 
 ## Materials and build
 
 - [Course notes](pdf/course-notes.pdf), editable master [course-notes.tex](course-notes.tex), with one source per session in `sessions/`.
 - [Student lab sheets](pdf/lab-sheets.pdf), editable master [lab-sheets.tex](lab-sheets.tex), with one source per lab in `labs/`.
-- [Instructor notes and solutions](pdf/instructor-notes.pdf), editable master [instructor-notes.tex](instructor-notes.tex), solutions in `instructor/solutions.tex`, `instructor/solutions-05-06.tex`, `instructor/solutions-07-08.tex` and `instructor/solutions-09.tex`.
+- [Instructor notes and solutions](pdf/instructor-notes.pdf), editable master [instructor-notes.tex](instructor-notes.tex), solutions in `instructor/solutions.tex`, `instructor/solutions-05-06.tex`, `instructor/solutions-07-08.tex` `instructor/solutions-09.tex` and `instructor/solutions-10-11.tex`.
 
 Run `make` from this folder to regenerate all three PDFs. It requires GNU Make
 and a TeX installation with pdfLaTeX, AMS packages, Latin Modern, microtype,
@@ -57,7 +61,7 @@ no separate break has been deducted.
 
 ## Supplementary Python notebooks
 
-All nine labs have **two additional programming exercises** in English.
+All eleven labs have **two additional programming exercises** in English.
 The [notebook index](notebooks/README.md) links the student notebooks, separate
 worked solutions, dependency list and instructions for running Jupyter.
 The `.ipynb` files are self-contained and remain editable independently of
@@ -75,9 +79,11 @@ guidance; student versions provide starter functions and checks.
 | 7 | Raster symmetric difference and vanishing thin features | Hausdorff distance through nearest neighbors |
 | 8 | Support functions and constant/minimum width | Normalize random convex polygons to minimum width one |
 | 9 | Compute Minkowski sums of polygons and mixed areas | Match a box cut by volume and measure the resulting unions |
+| 10 | Reconstruct odd-harmonic support functions and certify convexity | Locate a covering hexagon and compare mixed areas |
+| 11 | Refine tangent polygons and measure paired cut losses | Check an admissible Reuleaux-pentagon gradient and descent |
 
 Allow roughly 60–90 minutes per pair, or assign the exercises separately as
-homework. These times are additional to the 27-hour core programme. Students
+homework. These times are additional to the 33-hour core programme. Students
 need basic Python functions, loops and arrays; geometry and plotting helpers
 are supplied. Derivative-based algorithms start in Lab 3. The polygon ascent
 exercise in Lab 4 is the most demanding and includes the gradients and a
@@ -429,6 +435,76 @@ connecting to Session 8. The Python supplement computes convex polygon sums
 and mixed-area coefficients, then uses bisection to match a cut and a sweep
 algorithm to measure rectangle unions without double-counting overlaps.
 
+## Session 10 — constant width and Chakerian’s proof
+
+**Outcome:** students translate a directional width condition into a support
+identity and a difference-body identity, prove existence, and use a regular
+covering hexagon to establish the sharp minimum area.
+
+| Course time | Activity |
+| --- | --- |
+| 0–15 | Caliper interpretation, Reuleaux triangle, diameter and unique support contacts. |
+| 15–30 | Equivalent characterizations, radius normalization, central symmetry and Barbier. |
+| 30–45 | Odd harmonics, boundary reconstruction and the separate convexity condition. |
+| 45–55 | Direct method: confinement, closed width constraint, continuous area. |
+| 55–70 | Prove the regular-hexagon lemma by a continuous sign change. |
+| 70–85 | Chakerian’s inequality, Reuleaux attainment, disk maximum and the mixed-area plateau. |
+| 85–90 | Separate the sharp bound from equality rigidity; preview the next proof. |
+
+| Lab time | Activity |
+| --- | --- |
+| 0–15 | Exercise 10.1: width descriptions and Minkowski interpolation. |
+| 15–35 | Exercise 10.2: a smooth one-parameter family and its feasible interval. |
+| 35–55 | Exercise 10.3: existence and the covering hexagon. |
+| 55–80 | Exercise 10.4: triangle–Reuleaux–hexagon mixed areas and Chakerian. |
+| 80–90 | Compare minimum width with constant width. |
+
+**Pacing:** demonstrate the area formula for a smooth support function and
+use orthogonality of sine/cosine terms. Its derivation and the proof of the
+smooth convexity criterion are in the instructor notes. No distribution
+theory is required. The reverse isoperimetric reformulation and the
+three-dimensional mixed-volume calculation are optional reading.
+
+## Session 11 — geometric and variational proofs
+
+**Outcome:** students follow the tangent-polygon proof including equality,
+recognize a width-preserving motion, and close a finite-dimensional
+variational argument using compactness and approximation.
+
+| Course time | Activity |
+| --- | --- |
+| 0–10 | Equiangular tangent polygons, repeated vertices and convergence. |
+| 10–25 | Paired-cut area calculation; equal versus unequal cuts. |
+| 25–45 | Refinement proof, persistent area gaps and the 120-degree corner equality case. |
+| 45–55 | Reuleaux polygons and the paired-arc approximation construction. |
+| 55–65 | Draw the dependent-circle motion and its two-vertex Blaschke special case. |
+| 65–80 | Use the supplied gradient to identify stationary polygons; compare regular areas. |
+| 80–90 | Existence with at most N vertices, the limiting argument and proof synthesis. |
+
+| Lab time | Activity |
+| --- | --- |
+| 0–20 | Exercise 11.1: paired cuts and the first numerical values. |
+| 20–40 | Exercise 11.2: induction, limits and lower equality. |
+| 40–60 | Exercise 11.3: regular Reuleaux areas and monotonicity. |
+| 60–80 | Exercise 11.4: constrained descent, stationarity and second variation. |
+| 80–90 | Compare the logical dependencies of the three proofs. |
+
+**Pacing and proof status:** the tangent-polygon argument is proved in full.
+The lecture explains the Reuleaux approximation construction and supplies
+the derivative formula; the instructor notes provide its derivation, the
+compactness details, and a second route through Lagrange multipliers. The
+geometric comparison lemma in Yaglom–Boltyanskii’s three-arc replacement is
+explicitly supplied, with its source and proof outline. It is not needed
+for the complete tangent-polygon or variational proof. Teach that classical
+replacement as an alternative illustration, not another proof to fit in the
+same 90 minutes. General mixed-area hull identities and the annulus optimizer
+are optional supplied results, never prerequisites for the core theorem.
+
+The two Python exercises per lab remain additional homework or a separate
+computer session, about 70–90 minutes per pair. Their numerical tasks use
+analytic support functions and exact circle-intersection constructions;
+all sampling and floating-point limitations are identified explicitly.
+
 ## Source map and editorial choices
 
 These are local source references in the parent course-content folder. The
@@ -456,6 +532,12 @@ Manuscript page numbers refer to PDF pages, not handwritten numbering.
 | Session 9 parallel bodies | Treibergs, Section 7, pp. 14–15; Schneider, Section 4.2, especially printed p. 213 (PDF p. 237) |
 | Session 9 induction on box unions | Treibergs, Section 8, pp. 16–18; Schneider, notes to Section 7.1, item 10, printed p. 379 (PDF p. 403) |
 | Session 9 volume polynomial and inequalities | Schneider, Theorem 5.1.7, printed p. 280 (PDF p. 304); Theorem 7.1.1, printed p. 369 (PDF p. 393); Theorem 7.2.1 and isoperimetry, printed pp. 381–382 (PDF pp. 405–406) |
+| Session 10 constant width, hexagon and Chakerian | Curs9, pp. 5–13; `../Chakerian.djvu`, printed pp. 13–14, Theorems 1–3; Yaglom–Boltyanskii, Chapter 7, Exercises 7-1, 7-7, 7-11–12 and 7-15–16 |
+| Session 10 support parameterization and existence | Antunes–Bogosel, arXiv:1809.00254, Sections 2–3, especially the planar parameterization and closed width constraints |
+| Session 10 mixed-area interpretation and extensions | Bogosel, arXiv:2311.14618, Sections 2–4; the elementary triangle–hexagon sandwich is worked explicitly |
+| Session 11 tangent polygons and equality | Yaglom–Boltyanskii, Exercises 7-10–12, printed pp. 74–75; solutions pp. 247–253 |
+| Session 11 approximation and geometric reduction | Yaglom–Boltyanskii, printed pp. 76–80; Exercise 7-20 and solutions pp. 260–264 |
+| Session 11 variations and multipliers | Bogosel, arXiv:2412.13808, Sections 2–4, especially Theorem 8 and Corollaries 9–12 |
 
 The isoperimetric references consulted for Sessions 5–6 are:
 
@@ -518,7 +600,7 @@ Treibergs supplies the main planar model for the proof. The new presentation
 uses closed outer box covers to make the limiting argument explicit and keeps
 convex equality conditions separate from the general compact-set inequality.
 The manuscript's further constant-width minimum argument (Curs9, pp. 10–13)
-is not part of this session's core; the requested focus is mixed quantities,
+is developed in Sessions 10–11; Session 9 focuses on mixed quantities,
 Brunn–Minkowski and isoperimetry.
 
 The written chapters are English Beamer sources; the relevant handwritten
@@ -539,3 +621,34 @@ independent constraint gradients; tangency only preserves a curved constraint
 to first order; and stationarity alone is not a proof of global minimality.
 The Session 2 heuristics are labeled as such. Historical priority claims and
 industry-specific numbers in the old slides are not needed for these sessions.
+
+
+Additional references for Sessions 10–11:
+
+- G. D. Chakerian, *Sets of constant width*, Pacific Journal of Mathematics
+  19(1), 1966, pp. 13–21; local `../Chakerian.djvu`.
+- Pedro R. S. Antunes and Beniamin Bogosel,
+  [*Parametric Shape Optimization using the Support Function*](https://arxiv.org/abs/1809.00254).
+- Beniamin Bogosel,
+  [*Mixed volumes and the Blaschke–Lebesgue theorem*](https://arxiv.org/abs/2311.14618).
+- Beniamin Bogosel,
+  [*New variational arguments regarding the Blaschke–Lebesgue theorem*](https://arxiv.org/abs/2412.13808).
+
+**Conventions and qualifications for this block:** width one means the
+difference body is the unit-radius disk; the width-one disk itself has
+radius one half. A regular covering hexagon is described by its distance
+between opposite sides and is not called a constant-width body. Mixed-area
+monotonicity can have equality under strict inclusion. The classical
+refinement argument supplies lower equality rigidity, since strict finite
+approximation inequalities alone do not imply strictness in the limit.
+Odd Fourier modes enforce width only after convexity is checked. Existence
+for fixed maximum vertex count allows coincident or redundant centers at
+limits; the multiplier calculation applies to the actual nondegenerate
+polygon after those redundancies are removed.
+
+The reverse isoperimetric discussion uses outer radius **1/sqrt(3)** and
+inner radius **1/2** consistently. The three-dimensional extension proves
+the volume/surface-area identity and existence only; the Meissner-body
+minimization discussed in the references is presented as a conjectural
+identification. The geometric and differential proofs developed in these
+sessions are planar.

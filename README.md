@@ -5,7 +5,7 @@ Testing
 
 Course 1.
 
-## First nine sessions — English
+## First eleven sessions — English
 
 Each session consists of a 90-minute course and a 90-minute lab.
 See the [session plan and source map](SESSION_PLAN.md) for the timetable,
@@ -22,6 +22,8 @@ learning outcomes, teaching suggestions and links to last year's material.
 | 7 | L¹ and Hausdorff distances; Blaschke selection via Arzelà–Ascoli | Counterexamples, distance functions and compactness |
 | 8 | Existence, support functions, convex continuity, constant and minimum width | Confinement, admissible limits and Pál's triangle inequality |
 | 9 | Mixed areas and volumes; Brunn–Minkowski by box induction; isoperimetry | Parallel bodies, matching cuts, mixed coefficients and geometric inequalities |
+| 10 | Constant width; support characterization; existence; Chakerian’s proof | Smooth examples, the covering hexagon and a mixed-area plateau |
+| 11 | Tangent-polygon proof and equality; Reuleaux approximation; variational proof | Paired cuts, regular Reuleaux polygons and constrained gradients |
 
 - [Course notes — PDF](pdf/course-notes.pdf)
 - [Student lab sheets — PDF](pdf/lab-sheets.pdf)
@@ -48,15 +50,24 @@ Steiner formula lead to isoperimetry. General mixed volumes are introduced
 through their polynomial coefficients and first variation, with advanced
 theory left outside the core.
 
+Sessions 10–11 develop constant-width shapes and the Blaschke–Lebesgue
+theorem. Chakerian’s mixed-area proof is followed by the equiangular
+tangent-polygon proof, including equality, and a variational proof using
+Reuleaux polygons. The instructor notes include the area derivative,
+Lagrange multipliers, Blaschke motions, the classical three-arc reduction,
+and further mixed-volume connections. The source map identifies supplied
+lemmas and optional material from the three requested papers.
+
 ## Supplementary Python exercises
 
-Each of the nine labs has a Jupyter notebook with **two additional programming
+Each of the eleven labs has a Jupyter notebook with **two additional programming
 exercises**: English statements, starter code, plotting tasks, checks and
 discussion prompts. Separate worked solution notebooks include executed figures.
 
 See the [notebook index and setup instructions](notebooks/README.md) for all
-nine pairs. Topics include geometric searches, gradient descent, constrained
+eleven pairs. Topics include geometric searches, gradient descent, constrained
 polygon improvement, Dido, hinge motions, shape distances, minimum width,
-mixed areas and the box-cut construction.
+mixed areas, the box-cut construction, constant-width support functions,
+covering hexagons, tangent refinement and Reuleaux-pentagon variations.
 These supplements can be assigned as homework or additional computer sessions;
 the original mathematical lab schedule remains 90 minutes.

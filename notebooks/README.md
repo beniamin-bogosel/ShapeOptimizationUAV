@@ -1,4 +1,4 @@
-# Python supplements for Labs 1–9
+# Python supplements for Labs 1–11
 
 Each student notebook contains **two programming exercises in English**, with
 mathematical statements, explicit code tasks, starter functions, plotting cells,
@@ -17,6 +17,8 @@ homework; the original 90-minute mathematical labs remain the core schedule.
 | 7 | Raster symmetric difference and missed thin features | Hausdorff distance and distance functions | [Lab 7](lab-07-shape-distances.ipynb) | [Solutions](solutions/lab-07-shape-distances.ipynb) |
 | 8 | Support functions and directional widths | Random convex polygons at minimum width one | [Lab 8](lab-08-support-and-width.ipynb) | [Solutions](solutions/lab-08-support-and-width.ipynb) |
 | 9 | Polygonal Minkowski sums and mixed-area coefficients | The matching cut and rectangle-union areas | [Lab 9](lab-09-mixed-areas-and-box-cuts.ipynb) | [Solutions](solutions/lab-09-mixed-areas-and-box-cuts.ipynb) |
+| 10 | Support reconstruction and convexity | Covering hexagons and mixed-area plateaus | [Lab 10](lab-10-constant-width-and-hexagons.ipynb) | [Solutions](solutions/lab-10-constant-width-and-hexagons.ipynb) |
+| 11 | Tangent-polygon refinement and paired cuts | Reuleaux-pentagon gradient and admissible descent | [Lab 11](lab-11-tangent-polygons-and-variations.ipynb) | [Solutions](solutions/lab-11-tangent-polygons-and-variations.ipynb) |
 
 ## Start Jupyter
 
@@ -72,18 +74,20 @@ python scripts/validate_notebooks.py --execute --kind solutions --write-solution
 ```
 
 The first command validates notebook structure and the two-exercise pairing.
-The second executes all 18 notebooks, each in a fresh kernel, and saves copies
+The second executes all 22 notebooks, each in a fresh kernel, and saves copies
 under ignored `build/notebooks/`. The third refreshes the saved solution outputs.
 Execution checks include analytic optima, area/perimeter constraints, gradient
 finite differences, descent/ascent, approximation errors, metric identities and
-width bounds. Student stubs are checked for a clean startup; the completed
+width bounds. Labs 10–11 also check continuous convexity certificates for
+the chosen Fourier examples, covering tangencies, exact mixed-area plateaus,
+tangent-cut formulas and the constrained Reuleaux area derivative. Student stubs are checked for a clean startup; the completed
 solutions run all numerical assertions and must render figures.
 
 The default validation kernel is `python3`. If you followed the named-kernel
 setup above, append `--kernel shape-optimization` to the execution commands.
 The chosen kernel must have the requirements installed. No package installation
 is performed by a notebook or by the validator.
-Use `--lab 9` (or several lab numbers) to validate and execute only selected
+Use `--lab 10 11` (or several lab numbers) to validate and execute only selected
 labs; pairing and consecutive numbering are still checked for the collection.
 
 ## API references
